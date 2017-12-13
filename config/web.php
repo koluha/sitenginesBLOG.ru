@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'baseUrl' => '',
             'cookieValidationKey' => 'XqmpySqCGk6Vsq7wLOQZ4As99NJ0n2SJ',
         ],
         'cache' => [
@@ -39,7 +39,7 @@ $config = [
             ],
         ],
         'db' => $db,
-         'urlManager' => [
+        'urlManager' => [
             'enablePrettyUrl' => true, //  запрещаем index.php
             'showScriptName' => false, // запрещаем r= routes
             'rules' => [
