@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\core\Post;
 
 class SiteController extends AppController {
 
@@ -48,11 +49,11 @@ class SiteController extends AppController {
 
     public function actionIndex() {
 
-   //     $posts = Yii::$app->db->createCommand('SELECT * FROM posts')
-   //             ->queryAll();
+        $posts = new Post;
 
-      
-        return $this->render('index');
+        return $this->render('/post/list', [
+                    'posts' => $posts->list_(),
+        ]);
     }
 
     public function actionLogin() {

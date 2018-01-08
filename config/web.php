@@ -44,7 +44,14 @@ $config = [
             'showScriptName' => false, // запрещаем r= routes
             'rules' => [
             // '' => 'site/index',
-            // '<action>' => 'site/<action>',
+            //'<action:\w+>' => 'site/<action>',
+            //'/admin' => 'admin/default/index',
+            //'<controller:\w+>/<id:\d+>' => '<controller>/view',
+            //'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+            //'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            //'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+            //'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+            //'<module:\w+>/<controller:\w+>' => '<module>/<controller>/index',
             ],
         ],
     ],

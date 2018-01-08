@@ -7,6 +7,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\core\Categories;
 
 AppAsset::register($this);
 ?>
@@ -36,7 +37,7 @@ AppAsset::register($this);
             <div class="header-top">
                 <div class="container">
                     <div class="logo">
-                        <a href="index.html"><h1>БЛОГ ПРОГРАММИСТА</h1></a>
+                        <a href="/"><h1>БЛОГ ПРОГРАММИСТА</h1></a>
                     </div>
                     <div class="search">
                         <form>
@@ -125,8 +126,7 @@ AppAsset::register($this);
                     </div>
                     <div class="blo-top">
                         <div class="tech-btm">
-                            <h4>Sign up to our newsletter</h4>
-                            <p>Pellentesque dui, non felis. Maecenas male</p>
+                            <h4>Подписаться на нашу рассылку</h4>
                             <div class="name">
                                 <form>
                                     <input type="text" placeholder="Email" required="">
@@ -134,65 +134,24 @@ AppAsset::register($this);
                             </div>	
                             <div class="button">
                                 <form>
-                                    <input type="submit" value="Subscribe">
+                                    <input type="submit" value="Подписаться">
                                 </form>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
+                  
                     <div class="blo-top1">
+                        <!-- Категория -->
                         <div class="tech-btm">
-                            <h4>Top stories of the week </h4>
-                            <div class="blog-grids">
-                                <div class="blog-grid-left">
-                                    <a href="singlepage.html"><img src="images/6.jpg" class="img-responsive" alt=""/></a>
-                                </div>
-                                <div class="blog-grid-right">
+                            <?= $this->render('_categories') ?>
+                        </div>
+                    </div>
 
-                                    <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="blog-grids">
-                                <div class="blog-grid-left">
-                                    <a href="singlepage.html"><img src="images/7.jpg" class="img-responsive" alt=""/></a>
-                                </div>
-                                <div class="blog-grid-right">
-
-                                    <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="blog-grids">
-                                <div class="blog-grid-left">
-                                    <a href="singlepage.html"><img src="images/11.jpg" class="img-responsive" alt=""/></a>
-                                </div>
-                                <div class="blog-grid-right">
-
-                                    <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="blog-grids">
-                                <div class="blog-grid-left">
-                                    <a href="singlepage.html"><img src="images/9.jpg" class="img-responsive" alt=""/></a>
-                                </div>
-                                <div class="blog-grid-right">
-
-                                    <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="blog-grids">
-                                <div class="blog-grid-left">
-                                    <a href="singlepage.html"><img src="images/10.jpg" class="img-responsive" alt=""/></a>
-                                </div>
-                                <div class="blog-grid-right">
-
-                                    <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                    <div class="blo-top1">
+                        <!-- Тэги -->
+                        <div class="tech-btm">
+                            <?= $this->render('_tags') ?>
                         </div>
                     </div>
 
