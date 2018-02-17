@@ -55,6 +55,24 @@ $config = [
             ],
         ],
     ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'main.php',
+        // 'components' => [
+        //'admin' => [
+        //  'identityClass' => 'app\modules\admin\models\AdminIdentity',
+        //  'class' => 'yii\web\User',
+        //  'enableAutoLogin' => TRUE,
+        //  'loginUrl' => ['admin/default/adminlogin'],
+        //  'identityCookie' => [
+        //      'name' => 'admin', // unique for backend
+        //  ]
+        // ],
+        //  ],
+        // ... другие настройки модуля ...
+        ],
+    ],
     'params' => $params,
 ];
 

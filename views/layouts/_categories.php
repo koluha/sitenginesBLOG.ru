@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use app\models\core\Categories;
 
 //Получить и вывести список категорий
 echo '<h4>Категорий</h4>';
