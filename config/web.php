@@ -25,8 +25,8 @@ $config = [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
+// 'useFileTransport' to false and configure a transport
+// for the mailer to send real emails.
             'useFileTransport' => true,
         ],
         'log' => [
@@ -43,15 +43,15 @@ $config = [
             'enablePrettyUrl' => true, //  запрещаем index.php
             'showScriptName' => false, // запрещаем r= routes
             'rules' => [
-            // '' => 'site/index',
-            //'<action:\w+>' => 'site/<action>',
-            //'/admin' => 'admin/default/index',
-            //'<controller:\w+>/<id:\d+>' => '<controller>/view',
-            //'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-            //'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-            //'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-            //'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-            //'<module:\w+>/<controller:\w+>' => '<module>/<controller>/index',
+// '' => 'site/index',
+//'<action:\w+>' => 'site/<action>',
+//'/admin' => 'admin/default/index',
+//'<controller:\w+>/<id:\d+>' => '<controller>/view',
+//'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+//'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+//'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+//'<module:\w+>/<controller:\w+>' => '<module>/<controller>/index',
             ],
         ],
     ],
@@ -60,18 +60,28 @@ $config = [
             'class' => 'app\modules\admin\Module',
             'layout' => 'main.php',
         // 'components' => [
-        //'admin' => [
-        //  'identityClass' => 'app\modules\admin\models\AdminIdentity',
-        //  'class' => 'yii\web\User',
-        //  'enableAutoLogin' => TRUE,
-        //  'loginUrl' => ['admin/default/adminlogin'],
-        //  'identityCookie' => [
-        //      'name' => 'admin', // unique for backend
-        //  ]
-        // ],
-        //  ],
-        // ... другие настройки модуля ...
+//'admin' => [
+//  'identityClass' => 'app\modules\admin\models\AdminIdentity',
+//  'class' => 'yii\web\User',
+//  'enableAutoLogin' => TRUE,
+//  'loginUrl' => ['admin/default/adminlogin'],
+//  'identityCookie' => [
+//      'name' => 'admin', // unique for backend
+//  ]
+// ],
+//  ],
+// ... другие настройки модуля ...
         ],
+    ],
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+            'access' => ['@', '?'],
+            'root' => [
+                'path' => 'img/',
+                'name' => 'Global'
+            ],
+        ]
     ],
     'params' => $params,
 ];
