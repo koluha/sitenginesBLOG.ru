@@ -8,8 +8,8 @@ $this->title = 'Разработка приложений БЛОГ';
 foreach ($posts as $post) {
     echo '<div class="tc-ch">';
     echo ' <div class="tch-img">';
-    $img_name=($post['img_title'])?$post['img_title']:'noimage.jpg';
-    echo Html::a(Html::img('/img/'.$img_name, ['class' => 'img-responsive']), ['post/index', 'id' => $post['id']]);
+    $img_name=($post['img_title'])?$post['img_title']:'/img/noimage.jpg';
+    echo Html::a(Html::img($img_name, ['class' => 'img-responsive']), ['post/index', 'id' => $post['id']]);
 
     echo '</div>';
    

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
+use mihaildev\elfinder\InputFile;
 use yii\web\JsExpression;
 ?>
 
@@ -14,13 +15,13 @@ use yii\web\JsExpression;
 
     <?=
     $form->field($model, 'content')->widget(CKEditor::className(), [
-       
+
 
         'editorOptions' => \mihaildev\elfinder\ElFinder::ckeditorOptions('elfinder', [
-            'preset' => 'full', 
+            'preset' => 'full',
             'inline' => false,
-            'clientOptions' => [ 'filebrowserImageUploadUrl' => '/files/upload' ],
-            ])
+            'clientOptions' => [ 'filebrowserImageUploadUrl' => '/files/upload'],
+        ])
     ]);
     ?>
 
@@ -28,11 +29,21 @@ use yii\web\JsExpression;
     <?= $form->field($model, 'status')->textInput() ?>
     <?= $form->field($model, 'category_id')->textInput() ?>
     <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'img_title')->textInput(['maxlength' => true]) ?>
-
+    <?=
+    $form->field($model, 'img_title')->widget(InputFile::className(), [
+        'language' => 'ru',
+        'controller' => 'elfinder', // вставляем название контроллера, по умолчанию равен elfinder
+     //   'path' => 'image', // будет открыта папка из настроек контроллера с добавлением указанной под деритории 
+      //  'filter' => 'image', // фильтр файлов, можно задать массив фильтров https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#wiki-onlyMimes
+        'template' => '<div class="input-group">{input}<span class="input-group-btn">{button}</span></div>',
+        'options' => ['class' => 'form-control'],
+        'buttonOptions' => ['class' => 'btn btn-default'],
+     //   'multiple' => false       // возможность выбора нескольких файлов
+    ]);
+    ?>
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'meta_keyword')->textInput(['maxlength' => true]) ?>
-<?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'meta_keyword')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
     <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

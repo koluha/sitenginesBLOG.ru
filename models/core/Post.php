@@ -12,7 +12,7 @@ class Post extends \yii\db\ActiveRecord {
 
     public function rules() {
         return [
-            [['title', 'content', 'date', 'status', 'category_id', 'tags', 'img_title', 'meta_title', 'meta_keyword', 'meta_description'], 'required'],
+            [['title', 'content', 'date', 'status', 'category_id', 'tags', 'img_title'], 'required'],
             [['content'], 'string'],
             [['date'], 'safe'],
             [['status', 'category_id'], 'integer'],
@@ -31,7 +31,7 @@ class Post extends \yii\db\ActiveRecord {
             'status' => 'Статус',
             'category_id' => 'Категория',
             'tags' => 'Тэги',
-            'img_title' => 'Картинка заголовок',
+            'img_title' => 'Картинка заголовок 709х174',
             'meta_title' => 'Meta Title',
             'meta_keyword' => 'Meta Keyword',
             'meta_description' => 'Meta Description',
