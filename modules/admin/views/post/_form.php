@@ -6,6 +6,11 @@ use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
 use mihaildev\elfinder\InputFile;
 use yii\web\JsExpression;
+use app\models\core\Categories;
+use app\models\core\Status;
+
+$ob_status=new Status;
+
 ?>
 
 <div class="post-form">
@@ -26,8 +31,9 @@ use yii\web\JsExpression;
     ?>
 
     <?= $form->field($model, 'date')->textInput() ?>
-    <?= $form->field($model, 'status')->textInput() ?>
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList($ob_status->data) ?>
+    
+    <?= $form->field($model, 'category_id')->dropDownList(Categories::drop_list()) ?>
     <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
     <?=
     $form->field($model, 'img_title')->widget(InputFile::className(), [
@@ -46,7 +52,7 @@ use yii\web\JsExpression;
         <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 <?php ActiveForm::end(); ?>
 </div>

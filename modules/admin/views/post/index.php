@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\core\Categories;
 
 $this->title = 'Список публикации';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,20 +18,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <?=
     GridView::widget([
         'dataProvider' => $dataProvider,
-        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'id',
-            'category_id',
+            [ 'attribute' => 'category_id',
+                'label' => 'Категория',
+                'format' => 'raw',
+                'value' => function($data) {
+            return $data->get_categories($data->category_id);
+        },],
             'title',
             'date',
-            'status',
+            [ 'attribute' => 'status',
+                'label' => 'Статус',
+                'format' => 'raw',
+                'value' => function($data) {
+            return $data->get_status($data->status);
+        },],
             'tags',
             'img_title',
-            
-            
-            
-            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]);

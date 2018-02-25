@@ -3,6 +3,8 @@
 namespace app\models\core;
 
 use Yii;
+use app\models\core\Status;
+use app\models\core\Categories;
 
 class Post extends \yii\db\ActiveRecord {
 
@@ -12,7 +14,7 @@ class Post extends \yii\db\ActiveRecord {
 
     public function rules() {
         return [
-            [['title', 'content', 'date', 'status', 'category_id', 'tags', 'img_title'], 'required'],
+            [['title', 'content', 'date', 'status', 'category_id', 'tags'], 'required'],
             [['content'], 'string'],
             [['date'], 'safe'],
             [['status', 'category_id'], 'integer'],
@@ -69,4 +71,20 @@ class Post extends \yii\db\ActiveRecord {
         }
     }
 
+    //Вернуть статус по id
+    public function get_status($id) {
+        $st=new Status;
+        $mas = $st->data;
+        foreach ($mas as $key => $value) {
+            if ($id == $key) {
+                return $value;
+                exit();
+            }
+        }
+    }
+    
+    public function get_categories($id){
+        $title= Categories::get_name($id);
+        return $title;
+    }
 }
